@@ -1,5 +1,20 @@
 from sqlalchemy import Column, Integer, String
-from model.database.db import Base
+
+
+
+
+import os
+
+if "RENDER" in os.environ:
+    from backend.database.db import Base
+
+
+
+else:
+    from database.db import Base
+
+
+
 
 class User(Base):
     __tablename__ = "users"

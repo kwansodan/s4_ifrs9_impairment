@@ -2,10 +2,21 @@ from fastapi import APIRouter, File, UploadFile, HTTPException, Depends
 from sqlalchemy.orm import Session
 import pickle
 import pandas as pd
-from backend.utils.loan_functions import upload_file
+import os
 
-from backend.database import db_operations
-from backend.database.db import get_db
+if "RENDER" in os.environ:
+    from backend.utils.loan_functions import upload_file
+    from backend.database import db_operations
+    from backend.database.db import get_db
+
+
+
+else:
+    from utils.loan_functions import upload_file
+    from database import db_operations
+    from database.db import get_db
+
+
 
 router = APIRouter()
 

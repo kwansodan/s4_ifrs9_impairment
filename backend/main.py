@@ -1,13 +1,28 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 
-from backend.routes.api import router
+
 
 from dotenv import load_dotenv
 import os
-from backend.database.db import engine, Base
 
 load_dotenv()
+
+
+
+if "RENDER" in os.environ:
+    from backend.routes.api import router  # For Render.com
+    from backend.database.db import engine, Base
+
+
+else:
+    from routes.api import router  # For local development
+    from database.db import engine, Base
+
+from fastapi import FastAPI
+
+
+
 
 app = FastAPI()
 
