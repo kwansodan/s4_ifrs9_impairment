@@ -1,6 +1,8 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
-from routes.api import router
+
+from backend.routes.api import router
+
 from dotenv import load_dotenv
 import os
 from database.db import engine, Base
