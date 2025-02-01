@@ -4,8 +4,8 @@ import pickle
 import pandas as pd
 from backend.utils.loan_functions import upload_file
 
-from database import db_operations
-from database.db import get_db
+from backend.database import db_operations
+from backend.database.db import get_db
 
 router = APIRouter()
 
