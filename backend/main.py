@@ -5,7 +5,7 @@ from backend.routes.api import router
 
 from dotenv import load_dotenv
 import os
-from database.db import engine, Base
+from backend.database.db import engine, Base
 
 load_dotenv()
 
